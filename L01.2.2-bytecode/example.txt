@@ -1,0 +1,176 @@
+Classfile /D:/home/harbour/otus.ru/2018-12/L01-Maven/examples/L01.2.2-bytecode/target/classes/ru/otus/l1/BytecodeExample.class
+  Last modified 9 џэт. 2019 у.; size 1126 bytes
+  MD5 checksum bfcf0e9ed1ac170ef22203241e55508b
+  Compiled from "BytecodeExample.java"
+public class ru.otus.l1.BytecodeExample
+  minor version: 0
+  major version: 52
+  flags: (0x0021) ACC_PUBLIC, ACC_SUPER
+  this_class: #4                          // ru/otus/l1/BytecodeExample
+  super_class: #16                        // java/lang/Object
+  interfaces: 0, fields: 1, methods: 3, attributes: 1
+Constant pool:
+   #1 = Methodref          #16.#41        // java/lang/Object."<init>":()V
+   #2 = Fieldref           #4.#42         // ru/otus/l1/BytecodeExample.name:Ljava/lang/String;
+   #3 = String             #43            // Tully
+   #4 = Class              #44            // ru/otus/l1/BytecodeExample
+   #5 = Methodref          #4.#45         // ru/otus/l1/BytecodeExample."<init>":(Ljava/lang/String;)V
+   #6 = Methodref          #4.#46         // ru/otus/l1/BytecodeExample.getAnswer:()J
+   #7 = Fieldref           #47.#48        // java/lang/System.out:Ljava/io/PrintStream;
+   #8 = Class              #49            // java/lang/StringBuilder
+   #9 = Methodref          #8.#41         // java/lang/StringBuilder."<init>":()V
+  #10 = String             #50            // The answer for
+  #11 = Methodref          #8.#51         // java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+  #12 = String             #52            //  is:
+  #13 = Methodref          #8.#53         // java/lang/StringBuilder.append:(J)Ljava/lang/StringBuilder;
+  #14 = Methodref          #8.#54         // java/lang/StringBuilder.toString:()Ljava/lang/String;
+  #15 = Methodref          #55.#56        // java/io/PrintStream.println:(Ljava/lang/String;)V
+  #16 = Class              #57            // java/lang/Object
+  #17 = Utf8               name
+  #18 = Utf8               Ljava/lang/String;
+  #19 = Utf8               <init>
+  #20 = Utf8               (Ljava/lang/String;)V
+  #21 = Utf8               Code
+  #22 = Utf8               LineNumberTable
+  #23 = Utf8               LocalVariableTable
+  #24 = Utf8               this
+  #25 = Utf8               Lru/otus/l1/BytecodeExample;
+  #26 = Utf8               main
+  #27 = Utf8               ([Ljava/lang/String;)V
+  #28 = Utf8               args
+  #29 = Utf8               [Ljava/lang/String;
+  #30 = Utf8               example
+  #31 = Utf8               size
+  #32 = Utf8               J
+  #33 = Utf8               getAnswer
+  #34 = Utf8               ()J
+  #35 = Utf8               a
+  #36 = Utf8               I
+  #37 = Utf8               b
+  #38 = Utf8               c
+  #39 = Utf8               SourceFile
+  #40 = Utf8               BytecodeExample.java
+  #41 = NameAndType        #19:#58        // "<init>":()V
+  #42 = NameAndType        #17:#18        // name:Ljava/lang/String;
+  #43 = Utf8               Tully
+  #44 = Utf8               ru/otus/l1/BytecodeExample
+  #45 = NameAndType        #19:#20        // "<init>":(Ljava/lang/String;)V
+  #46 = NameAndType        #33:#34        // getAnswer:()J
+  #47 = Class              #59            // java/lang/System
+  #48 = NameAndType        #60:#61        // out:Ljava/io/PrintStream;
+  #49 = Utf8               java/lang/StringBuilder
+  #50 = Utf8               The answer for
+  #51 = NameAndType        #62:#63        // append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+  #52 = Utf8                is:
+  #53 = NameAndType        #62:#64        // append:(J)Ljava/lang/StringBuilder;
+  #54 = NameAndType        #65:#66        // toString:()Ljava/lang/String;
+  #55 = Class              #67            // java/io/PrintStream
+  #56 = NameAndType        #68:#20        // println:(Ljava/lang/String;)V
+  #57 = Utf8               java/lang/Object
+  #58 = Utf8               ()V
+  #59 = Utf8               java/lang/System
+  #60 = Utf8               out
+  #61 = Utf8               Ljava/io/PrintStream;
+  #62 = Utf8               append
+  #63 = Utf8               (Ljava/lang/String;)Ljava/lang/StringBuilder;
+  #64 = Utf8               (J)Ljava/lang/StringBuilder;
+  #65 = Utf8               toString
+  #66 = Utf8               ()Ljava/lang/String;
+  #67 = Utf8               java/io/PrintStream
+  #68 = Utf8               println
+{
+  public ru.otus.l1.BytecodeExample(java.lang.String);
+    descriptor: (Ljava/lang/String;)V
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=2, locals=2, args_size=2
+         0: aload_0
+         1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+         4: aload_0
+         5: aload_1
+         6: putfield      #2                  // Field name:Ljava/lang/String;
+         9: return
+      LineNumberTable:
+        line 13: 0
+        line 14: 4
+        line 15: 9
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      10     0  this   Lru/otus/l1/BytecodeExample;
+            0      10     1  name   Ljava/lang/String;
+
+  public static void main(java.lang.String[]);
+    descriptor: ([Ljava/lang/String;)V
+    flags: (0x0009) ACC_PUBLIC, ACC_STATIC
+    Code:
+      stack=4, locals=5, args_size=1
+         0: ldc           #3                  // String Tully
+         2: astore_1
+         3: new           #4                  // class ru/otus/l1/BytecodeExample
+         6: dup
+         7: aload_1
+         8: invokespecial #5                  // Method "<init>":(Ljava/lang/String;)V
+        11: astore_2
+        12: aload_2
+        13: invokevirtual #6                  // Method getAnswer:()J
+        16: lstore_3
+        17: getstatic     #7                  // Field java/lang/System.out:Ljava/io/PrintStream;
+        20: new           #8                  // class java/lang/StringBuilder
+        23: dup
+        24: invokespecial #9                  // Method java/lang/StringBuilder."<init>":()V
+        27: ldc           #10                 // String The answer for
+        29: invokevirtual #11                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+        32: aload_2
+        33: getfield      #2                  // Field name:Ljava/lang/String;
+        36: invokevirtual #11                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+        39: ldc           #12                 // String  is:
+        41: invokevirtual #11                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+        44: lload_3
+        45: invokevirtual #13                 // Method java/lang/StringBuilder.append:(J)Ljava/lang/StringBuilder;
+        48: invokevirtual #14                 // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+        51: invokevirtual #15                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+        54: return
+      LineNumberTable:
+        line 18: 0
+        line 19: 3
+        line 20: 12
+        line 21: 17
+        line 22: 54
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      55     0  args   [Ljava/lang/String;
+            3      52     1  name   Ljava/lang/String;
+           12      43     2 example   Lru/otus/l1/BytecodeExample;
+           17      38     3  size   J
+
+  public long getAnswer();
+    descriptor: ()J
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=2, locals=4, args_size=1
+         0: iconst_1
+         1: istore_1
+         2: iconst_5
+         3: istore_2
+         4: iload_1
+         5: iload_2
+         6: ishl
+         7: istore_3
+         8: iload_3
+         9: bipush        10
+        11: iadd
+        12: i2l
+        13: lreturn
+      LineNumberTable:
+        line 25: 0
+        line 26: 2
+        line 27: 4
+        line 28: 8
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      14     0  this   Lru/otus/l1/BytecodeExample;
+            2      12     1     a   I
+            4      10     2     b   I
+            8       6     3     c   I
+}
+SourceFile: "BytecodeExample.java"

@@ -1,0 +1,78 @@
+com.google.common.base.Preconditions -> a.a.a.a.a:
+    int checkPositionIndex(int,int) -> a
+    java.lang.String badPositionIndex(int,int,java.lang.String) -> a
+    void checkPositionIndexes(int,int,int) -> a
+    java.lang.String format(java.lang.String,java.lang.Object[]) -> a
+com.google.common.collect.Collections2 -> a.a.a.b.a:
+    java.util.Collection permutations(java.util.Collection) -> a
+com.google.common.collect.Collections2$PermutationCollection -> a.a.a.b.b:
+    com.google.common.collect.ImmutableList inputList -> a
+    void <init>(com.google.common.collect.ImmutableList) -> <init>
+com.google.common.collect.ImmutableAsList -> a.a.a.b.c:
+    void <init>() -> <init>
+    com.google.common.collect.ImmutableCollection delegateCollection() -> a
+    boolean isPartialView() -> b
+com.google.common.collect.ImmutableCollection -> a.a.a.b.d:
+    java.lang.Object[] EMPTY_ARRAY -> a
+    void <init>() -> <init>
+    com.google.common.collect.UnmodifiableIterator iterator() -> c
+    java.lang.Object[] toArray() -> d
+    com.google.common.collect.ImmutableList asList() -> e
+    boolean isPartialView() -> b
+    int copyIntoArray(java.lang.Object[],int) -> a
+    void <clinit>() -> <clinit>
+com.google.common.collect.ImmutableList -> a.a.a.b.e:
+    com.google.common.collect.ImmutableList of(java.lang.Object) -> a
+    com.google.common.collect.ImmutableList copyOf(java.util.Collection) -> a
+    com.google.common.collect.ImmutableList asImmutableList(java.lang.Object[],int) -> b
+    void <init>() -> <init>
+    com.google.common.collect.UnmodifiableIterator iterator() -> c
+    com.google.common.collect.UnmodifiableListIterator listIterator(int) -> a
+    com.google.common.collect.ImmutableList asList() -> e
+    int copyIntoArray(java.lang.Object[],int) -> a
+com.google.common.collect.ImmutableList$1 -> a.a.a.b.f:
+    com.google.common.collect.ImmutableList this$0 -> a
+    void <init>(com.google.common.collect.ImmutableList,int,int) -> <init>
+com.google.common.collect.Iterators -> a.a.a.b.g:
+com.google.common.collect.Iterators$9 -> a.a.a.b.h:
+    java.lang.Object val$value -> a
+    void <init>(java.lang.Object) -> <init>
+com.google.common.collect.Iterators$ArrayItr -> a.a.a.b.i:
+    com.google.common.collect.UnmodifiableListIterator EMPTY -> a
+    java.lang.Object[] array -> b
+    int offset -> c
+    void <init>(java.lang.Object[],int,int,int) -> <init>
+    void <clinit>() -> <clinit>
+com.google.common.collect.RegularImmutableAsList -> a.a.a.b.j:
+    com.google.common.collect.ImmutableCollection delegate -> a
+    com.google.common.collect.ImmutableList delegateList -> b
+    void <init>(com.google.common.collect.ImmutableCollection,com.google.common.collect.ImmutableList) -> <init>
+    void <init>(com.google.common.collect.ImmutableCollection,java.lang.Object[]) -> <init>
+    com.google.common.collect.ImmutableCollection delegateCollection() -> a
+    com.google.common.collect.UnmodifiableListIterator listIterator(int) -> a
+    int copyIntoArray(java.lang.Object[],int) -> a
+com.google.common.collect.RegularImmutableList -> a.a.a.b.k:
+    com.google.common.collect.ImmutableList EMPTY -> a
+    java.lang.Object[] array -> b
+    void <init>(java.lang.Object[]) -> <init>
+    boolean isPartialView() -> b
+    int copyIntoArray(java.lang.Object[],int) -> a
+    com.google.common.collect.UnmodifiableListIterator listIterator(int) -> a
+    void <clinit>() -> <clinit>
+com.google.common.collect.SingletonImmutableList -> a.a.a.b.l:
+    java.lang.Object element -> a
+    void <init>(java.lang.Object) -> <init>
+    com.google.common.collect.UnmodifiableIterator iterator() -> c
+    boolean isPartialView() -> b
+com.google.common.collect.UnmodifiableIterator -> a.a.a.b.m:
+    void <init>() -> <init>
+com.google.common.collect.UnmodifiableListIterator -> a.a.a.b.n:
+    int size -> a
+    int position -> b
+    void <init>() -> <init>
+    void <init>(int,int) -> <init>
+ru.otus.l0111.Main -> ru.otus.l0111.Main:
+    void <init>() -> <init>
+    void main(java.lang.String[]) -> main
+    void calcTime(java.lang.Runnable) -> a
+    void lambda$main$0(java.util.Collection) -> a
