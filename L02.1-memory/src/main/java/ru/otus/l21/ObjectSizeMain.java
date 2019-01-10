@@ -22,7 +22,7 @@ public class ObjectSizeMain {
         int size = 20_000_000;
 
         System.out.println("Starting the loop");
-        while (true) {
+//        while (true) {
             long mem = getMem();
             System.out.println("Mem: " + mem);
 
@@ -32,11 +32,11 @@ public class ObjectSizeMain {
             System.out.println("Ref size: " + (mem2 - mem) / array.length);
 
             for (int i = 0; i < array.length; i++) {
-                array[i] = new Object();
-                //array[i] = new String(""); //String pool
+//                array[i] = new Object();
+//                array[i] = new String(""); //String pool
                 //array[i] = new String(new char[0]); // java8 or java9
                 //array[i] = new String(new byte[0]); //without String pool
-                //array[i] = new MyClass();
+                array[i] = new MyClass();
                 //array[i] = new byte[1]; //16 or 24 with -XX:-UseCompressedOops
             }
 
@@ -47,7 +47,7 @@ public class ObjectSizeMain {
             System.out.println("Array is ready for GC");
 
             Thread.sleep(1000); //wait for 1 sec
-        }
+//        }
     }
 
     private static long getMem() throws InterruptedException {
@@ -58,6 +58,7 @@ public class ObjectSizeMain {
     }
 
     private static class MyClass {
+//        private boolean b = false;     // +1
         //private byte b = 0;     // +1
         //private int i = 0;      // +4
         //private long l = 1;     // +8
