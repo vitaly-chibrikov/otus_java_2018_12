@@ -29,11 +29,16 @@ public class Example7Limitations {
 //            }
 //        };
 
-        final MyRunnable<String> myRunnable = new MyRunnable<String>();
+        final MyRunnable<String> myRunnable = new MyRunnable<String>() {
+            @Override
+            public void run() {
+                super.run();
+            }
+        };
 //        final MyRunnable<T> myRunnable = new MyRunnable<T>();
     }
 
-    private static class MyRunnable<T> implements Runnable {
+    private abstract static class MyRunnable<T> implements Runnable {
         @Override
         public void run() {
         }

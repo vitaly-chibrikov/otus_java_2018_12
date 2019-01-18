@@ -18,6 +18,9 @@ public class Example3ClassCast {
         stringList.add("5");
         stringList.add("6");
 
+        System.out.println(intList.size());
+        System.out.println(stringList.size());
+
         intList.forEach(System.out::println);
         stringList.forEach(System.out::println);
     }

@@ -22,12 +22,12 @@ public class Example10SyntheticMethod {
 
     private static class Main {
         public static void main(String[] args) throws NoSuchMethodException {
-            for (Method method : Example10SyntheticMethod.class.getDeclaredMethods()) {
+            for (Method method : MyClass.class.getDeclaredMethods()) {
                 System.out.println(method);
             }
 
-            final Method method1 = Example10SyntheticMethod.class.getMethod("print", String.class);
-            final Method method2 = Example10SyntheticMethod.class.getMethod("print", Object.class);
+            final Method method1 = MyClass.class.getMethod("print", String.class);
+            final Method method2 = MyClass.class.getMethod("print", Object.class);
 
             System.out.println(method1.isSynthetic());
             System.out.println(method2.isSynthetic());
