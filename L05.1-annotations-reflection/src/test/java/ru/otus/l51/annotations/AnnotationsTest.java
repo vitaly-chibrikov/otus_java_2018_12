@@ -22,8 +22,18 @@ class AnnotationsTest {
     }
 
     @BeforeEach
+    void beforeEach3() {
+        System.out.println("BeforeEach3");
+    }
+
+    @BeforeEach
     void beforeEach() {
         System.out.println("BeforeEach");
+    }
+
+    @BeforeEach
+    void beforeEach2() {
+        System.out.println("BeforeEach2");
     }
 
     @Test

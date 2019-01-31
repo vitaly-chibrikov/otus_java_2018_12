@@ -42,7 +42,8 @@ public class Main<T extends @Email String> {                        //ElementTyp
             System.out.println("role: " + role.value());
         }
 
-        final PackageOwner packageOwner = PackageLevelClass.class.getPackage().getDeclaredAnnotation(PackageOwner.class);
+        final Package aPackage = PackageLevelClass.class.getPackage();
+        final PackageOwner packageOwner = aPackage.getDeclaredAnnotation(PackageOwner.class);
         System.out.println("package owner: " + packageOwner.value());
     }
 
