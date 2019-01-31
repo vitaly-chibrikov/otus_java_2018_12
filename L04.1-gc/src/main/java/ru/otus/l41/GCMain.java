@@ -11,8 +11,8 @@ package ru.otus.l41;
  -Dcom.sun.management.jmxremote.authenticate=false
  -Dcom.sun.management.jmxremote.ssl=false
  -XX:+HeapDumpOnOutOfMemoryError
- -XX:OnOutOfMemoryError="kill -3 %p"
  -XX:HeapDumpPath=./dumps
+ -XX:OnOutOfMemoryError="kill -3 %p"
  -XX:+UseG1GC
  -XX:+UseConcMarkSweepGC
  -XX:+UseSerialGC
@@ -37,9 +37,9 @@ public class GCMain {
     public static void main(String... args) throws Exception {
         System.out.println("Starting pid: " + ManagementFactory.getRuntimeMXBean().getName());
 
-//        final int size = 5 * 1000 * 1000;
+        final int size = 5 * 1000 * 1000;
 //        final int size = 50 * 1000 * 1000;//for OOM with -Xms512m
-        final int size = 50 * 1000 * 100; //for small dump
+//        final int size = 50 * 1000 * 100; //for small dump
 
         final MBeanServer mbs = ManagementFactory.getPlatformMBeanServer();
         final ObjectName name = new ObjectName("ru.otus:type=Benchmark");
