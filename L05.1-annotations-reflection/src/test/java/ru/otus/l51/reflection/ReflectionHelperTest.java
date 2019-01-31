@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 /**
  * Created by tully.
  */
-public class ReflectionHelperTest {
+class ReflectionHelperTest {
     @Test
     void instantiate() {
         final TestClass testClass = ReflectionHelper.instantiate(TestClass.class);
@@ -25,7 +25,7 @@ public class ReflectionHelperTest {
     }
 
     @Test
-    public void setFieldValue() {
+    void setFieldValue() {
         final TestClass test = new TestClass(1, "A");
         assertEquals("A", test.getS());
         ReflectionHelper.setFieldValue(test, "s", "B");
@@ -33,10 +33,10 @@ public class ReflectionHelperTest {
     }
 
     @Test
-    public void callMethod() {
+    void callMethod() {
         assertEquals("A", ReflectionHelper.callMethod(new TestClass(1, "A"), "getS"));
 
-        TestClass test = new TestClass(1, "A");
+        final TestClass test = new TestClass(1, "A");
         ReflectionHelper.callMethod(test, "setDefault");
         assertEquals("", test.getS());
     }

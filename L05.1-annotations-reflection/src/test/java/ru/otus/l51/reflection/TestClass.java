@@ -5,8 +5,8 @@ package ru.otus.l51.reflection;
  */
 @SuppressWarnings("unused")
 public class TestClass {
-    public static final int DEFAULT_A  = 0;
-    public static final String DEFAULT_S = "";
+    static final int DEFAULT_A  = 0;
+    static final String DEFAULT_S = "";
 
     private int a;
     private String s;
