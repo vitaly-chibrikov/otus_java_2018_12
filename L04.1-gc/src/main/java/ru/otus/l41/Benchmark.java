@@ -4,7 +4,7 @@ class Benchmark implements BenchmarkMBean {
     private volatile int size = 0;
 
     @SuppressWarnings("InfiniteLoopStatement")
-    void run() {
+    void run() throws InterruptedException {
 
         System.out.println("Starting the loop");
 //        int counter = 0;
@@ -21,6 +21,7 @@ class Benchmark implements BenchmarkMBean {
 //            if (counter % 100 == 0) {
 //                GCMain.STORAGE.put(System.currentTimeMillis(), array);
 //            }
+//            Thread.sleep(1000);
         }
     }
 
