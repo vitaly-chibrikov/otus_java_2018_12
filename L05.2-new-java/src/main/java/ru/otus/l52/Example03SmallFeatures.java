@@ -1,8 +1,6 @@
 package ru.otus.l52;
 
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.StringJoiner;
 
 public class Example03SmallFeatures {
@@ -24,10 +22,5 @@ public class Example03SmallFeatures {
             jsonArrayJoiner.add(s);
         }
         System.out.println("StringJoiner: " + jsonArrayJoiner.toString());
-
-        //some comment
-        Files.lines(Paths.get("/Users/egorshubin/git/otus_java_2018_12/L05.2-new-java/src/main/java/ru/otus/l52/Example01SmallFeatures.java"))
-                //DO_NOT_COMMIT .filter(s -> !s.trim().isEmpty() && !s.trim().startsWith("//") && !s.startsWith("import") && !s.startsWith("package"))
-                .forEach(System.out::println);
     }
 }

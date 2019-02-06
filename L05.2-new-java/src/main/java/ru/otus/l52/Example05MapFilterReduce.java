@@ -13,15 +13,18 @@ public class Example05MapFilterReduce {
         list.add(9d);
         list.add(16d);
         System.out.println("Initial list: ");
-        print(list);
+        System.out.println(list);
 
+        //noinspection Convert2MethodRef
         final List<Double> mappedList = map(list, e -> Math.sqrt(e));
         System.out.println("Mapped list: ");
-        print(mappedList);
+        System.out.println(mappedList);
 
-        final List<Double> filteredList = filter(mappedList, e -> e % 2 == 0);
+        final List<Double> filteredList = filter(list, e -> e % 2 == 0);
         System.out.println("Filtered list: ");
-        print(filteredList);
+        System.out.println(filteredList);
+
+//        final double reduceResult = reduce(list, ...)
     }
 
     static <T, R> List<R> map(Collection<T> src, Function<T, R> op) {
@@ -40,9 +43,5 @@ public class Example05MapFilterReduce {
             }
         }
         return result;
-    }
-
-    private static void print(List<?> list) {
-        list.forEach(System.out::println);
     }
 }

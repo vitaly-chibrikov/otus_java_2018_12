@@ -8,7 +8,6 @@ public class Example00Students {
         // imperative - how i want to do it (step by step)
         final List<Student> students = getStudents();
 
-        // Напечатать имена топ-студентов 5го курса с оценкой больше 4, по убыванию
         final List<Student> result = new ArrayList<>();
         for (Student student : students) {
             if (student.getAvgMark() > 4 && student.getCourse() == 5) {
@@ -22,7 +21,7 @@ public class Example00Students {
 
         // declarative - what i want to do
         // refactor more!
-//        students.stream()
+//        getStudents().stream()
 //                .filter(student -> student.getAvgMark() > 4 && student.getCourse() == 5)
 //                .sorted(Comparator.comparingDouble(Student::getAvgMark).reversed())
 //                .forEach(student -> System.out.println(student.getName()));
@@ -30,7 +29,7 @@ public class Example00Students {
 
     static List<Student> getStudents() {
         final List<Student> students = new ArrayList<>();
-        students.add(new Student("Leia", 5, 2.5));
+        students.add(new Student("Leia", 4, 2.5));
         students.add(new Student("Darth Vader", 5, 5));
         students.add(new Student("Luke", 4, 4.5));
         students.add(new Student("Obi-Wan", 5, 4.9));
