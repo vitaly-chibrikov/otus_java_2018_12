@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>ru.otus</groupId>
+    <artifactId>L05.2.1-modules</artifactId>
+    <packaging>pom</packaging>
+    <version>2018-12</version>
+    <modules>
+        <module>submodule</module>
+    </modules>
+    <dependencies>
+        <dependency>
+            <groupId>ru.otus</groupId>
+            <artifactId>submodule</artifactId>
+            <version>2018-12</version>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+    </properties>
+
+</project>
