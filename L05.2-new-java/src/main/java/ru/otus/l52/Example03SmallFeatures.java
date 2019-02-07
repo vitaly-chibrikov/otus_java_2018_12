@@ -1,10 +1,9 @@
 package ru.otus.l52;
 
-import java.io.IOException;
 import java.util.StringJoiner;
 
 public class Example03SmallFeatures {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         final String[] strings = {"aa", "bbb", "c", "dddd"};
 
         final StringBuilder builder = new StringBuilder();

@@ -2,11 +2,26 @@ package ru.otus.l52;
 
 public class TmpMain {
     public static void main(String[] args) {
-        int a = 3;
+        final Implementer implementer = new Implementer();
+        implementer.A();
+    }
 
-        final Runnable r = () -> System.out.println(a);
-        r.run();
+    interface Interface {
+        default void A() {
+            System.out.println("interface");
+        }
+    }
 
-//        a++;
+    static class MyClass {
+        void A() {
+            System.out.println("class");
+        }
+    }
+
+    static class Implementer extends MyClass implements Interface {
+        @Override
+        public void A() {
+            super.A();
+        }
     }
 }

@@ -8,7 +8,7 @@ public class OptionalsMain {
 
     public static void main(String[] args) {
         for (int i = 0; i < 10; i++) {
-//            final Optional<String> optionalValue = getOptionalValue();
+            final Optional<String> optionalValue = getOptionalValue();
 //            if (optionalValue.isPresent()) { // "NEVER" do that
 //                System.out.println(optionalValue.get());
 //            } else {
@@ -18,17 +18,17 @@ public class OptionalsMain {
 //              noinspection OptionalGetWithoutIsPresent
 //            System.out.println(getOptionalValue().get().length());
 //
-//            System.out.println(getOptionalValue().orElse(getDefaultValue()));
+//            System.out.println(getOptionalValue().orElse(getDefaultValue())); // not lazy!
 //
-//            System.out.println(getOptionalValue().orElseGet(OptionalsMain::getDefaultValue));
+//            System.out.println(getOptionalValue().orElseGet(() -> getDefaultValue())); // lazy!
 //
 //            System.out.println(getOptionalValue().orElseThrow());
-//
+////
 //            getOptionalValue().ifPresent(System.out::println);
-//
+////
 //            getOptionalValue().or(OptionalsMain::getOptionalValue);
-
-            System.out.println(getOptionalValue().map(String::length).orElse(0));
+//
+//            System.out.println(getOptionalValue().map(String::length).orElse(0));
         }
     }
 
@@ -40,12 +40,12 @@ public class OptionalsMain {
     }
 
     private static Optional<String> getOptionalValue() {
-//        return Optional.ofNullable(getValue());
-
-        if (RND.nextBoolean()) {
-            return Optional.empty();
-        }
-        return Optional.of("optional value");
+        return Optional.ofNullable(getValue());
+//
+//        if (RND.nextBoolean()) {
+//            return Optional.empty();
+//        }
+//        return Optional.of("optional value");
     }
 
     private static String getDefaultValue() {

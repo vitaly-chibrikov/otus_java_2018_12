@@ -1,4 +1,4 @@
-package ru.otus.l52.e00lambdas;
+package ru.otus.l52.e01lambdas;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -9,7 +9,7 @@ public class Example05Comparator {
         final List<String> list = getList();
 
         // old way
-        list.sort(new StringLengthComparator());
+//        list.sort(new StringLengthComparator());
 
 //        //noinspection Convert2Lambda
 //        list.sort(new Comparator<>() {
@@ -19,14 +19,14 @@ public class Example05Comparator {
 //            }
 //        });
 //
-//        //new way
+        //new way
 //        //noinspection ComparatorCombinators
 //        list.sort((s1, s2) -> Integer.compare(s1.length(), s2.length()));
 //
 //        //noinspection Convert2MethodRef
-//        list.sort(Comparator.comparing(s -> s.length()));
+//        list.sort(Comparator.comparingInt(s -> s.length()));
 //
-//        list.sort(Comparator.comparing(String::length));
+        list.sort(Comparator.comparingInt(String::length));
 
         list.forEach(System.out::println);
     }

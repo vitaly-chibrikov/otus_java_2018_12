@@ -1,7 +1,7 @@
-package ru.otus.l52.e00lambdas;
+package ru.otus.l52.e01lambdas;
 
 public class Example03LambdaMethodReference {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         final Data data = new Data(1);
 
         //noinspection Convert2MethodRef
