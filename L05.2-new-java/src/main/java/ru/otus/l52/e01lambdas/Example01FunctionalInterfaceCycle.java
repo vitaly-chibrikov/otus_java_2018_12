@@ -1,4 +1,4 @@
-package ru.otus.l52.e00lambdas;
+package ru.otus.l52.e01lambdas;
 
 public class Example01FunctionalInterfaceCycle {
     public static void main(String[] args) {

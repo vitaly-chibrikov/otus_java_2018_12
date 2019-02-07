@@ -1,4 +1,4 @@
-package ru.otus.l52.e01interfaces;
+package ru.otus.l52.e00interfaces;
 
 /**
  * See also {@link java.util.Collection}

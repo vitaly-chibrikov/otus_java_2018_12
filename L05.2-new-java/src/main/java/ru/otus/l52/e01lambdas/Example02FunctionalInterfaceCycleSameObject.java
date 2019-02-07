@@ -1,4 +1,4 @@
-package ru.otus.l52.e00lambdas;
+package ru.otus.l52.e01lambdas;
 
 @SuppressWarnings("Duplicates")
 public class Example02FunctionalInterfaceCycleSameObject {

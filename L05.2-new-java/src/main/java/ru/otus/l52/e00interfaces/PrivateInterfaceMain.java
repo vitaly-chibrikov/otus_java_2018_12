@@ -1,4 +1,4 @@
-package ru.otus.l52.e01interfaces;
+package ru.otus.l52.e00interfaces;
 
 public class PrivateInterfaceMain {
     public static void main(String[] args) {
@@ -13,5 +13,6 @@ public class PrivateInterfaceMain {
     }
 
     private static final class MyClass implements PrivateInterface {
+//        @Override printState() and printClass() only
     }
 }
