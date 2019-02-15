@@ -7,6 +7,6 @@ class ChildClass {
     private static final Logger LOG = LoggerFactory.getLogger(ChildClass.class);
 
     void doSomething() {
-        LOG.warn("child class warning");
+        LOG.warn("child class warning: {}", "details");
     }
 }

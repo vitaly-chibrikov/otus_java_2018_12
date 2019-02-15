@@ -13,7 +13,7 @@
         </layout>
     </appender>
 
-    <logger name="ru.otus.l062logback.LogbackMain" level="TRACE" additivity="false">
+    <logger name="ru.otus.logging.l062logging.LoggingMain" level="TRACE" additivity="false">
         <appender-ref ref="JSON"/>
     </logger>
 

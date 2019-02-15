@@ -28,6 +28,12 @@
             <artifactId>jsonevent-layout</artifactId>
             <version>1.7</version>
         </dependency>
+        <dependency>
+            <groupId>ru.otus</groupId>
+            <artifactId>L06.2-logging</artifactId>
+            <version>2018-12</version>
+            <scope>compile</scope>
+        </dependency>
     </dependencies>
 
 </project>

@@ -10,7 +10,7 @@
         </encoder>
     </appender>
 
-    <logger name="ru.otus.l062logback.LogbackMain" level="ERROR" additivity="false">
+    <logger name="ru.otus.logging.l062logging.LoggingMain" level="ERROR" additivity="false">
         <appender-ref ref="FILE"/>
     </logger>
 
