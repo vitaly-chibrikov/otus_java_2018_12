@@ -9,7 +9,8 @@ public class LoggingMain {
      */
     private static final Logger LOG = LoggerFactory.getLogger(LoggingMain.class);
 
-    public static void main(String... args) {
+    public static void main(String... args) throws InterruptedException {
+        LOG.info("application started");
         //noinspection InfiniteLoopStatement
         for (; ; ) {
             LOG.info("info message: {}, {}, {}", "string data", 10, 1.0d);
@@ -18,6 +19,7 @@ public class LoggingMain {
             }
 
             new ChildClass().doSomething();
+            Thread.sleep(1000);
         }
     }
 }

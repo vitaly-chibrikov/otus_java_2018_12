@@ -2,18 +2,26 @@
 
 <configuration>
 
-    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>L06.2-logging/L06.2-logback/logs/logback.%d{yyyy-MM-dd-HH-mm-ss}.log</fileNamePattern>
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+
+        <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+            <maxFileSize>1KB</maxFileSize>
+        </triggeringPolicy>
         <encoder>
             <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{5} - %msg%n</pattern>
         </encoder>
     </appender>
 
-    <logger name="ru.otus.logging.l062logging.LoggingMain" level="INFO" additivity="false">
-        <appender-ref ref="STDOUT"/>
+    <logger name="ru.otus.logging.l062logging.LoggingMain" level="ERROR" additivity="false">
+        <appender-ref ref="FILE"/>
     </logger>
 
     <root level="TRACE">
-        <appender-ref ref="STDOUT"/>
+        <appender-ref ref="FILE"/>
     </root>
 
 </configuration>
