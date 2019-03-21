@@ -5,7 +5,6 @@ import ru.otus.executors.Executor;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.List;
 
 public class UserPreparedExecutorDAO implements UserDAO {
@@ -17,8 +16,10 @@ public class UserPreparedExecutorDAO implements UserDAO {
 
     @Override
     public void create(User user) throws SQLException {
-        final Statement statement = connection.createStatement();
-        statement.executeUpdate("INSERT INTO otus.otus_user (user_name, age) VALUES ('" + user.getName() + "', " + user.getAge() + ");");
+        final PreparedStatement statement = connection.prepareStatement("INSERT INTO otus.otus_user (user_name, age) VALUES (?, ?);");
+        statement.setString(1, user.getName());
+        statement.setInt(2, user.getAge());
+        Executor.updatePrepared(statement);
     }
 
     @Override
