@@ -24,8 +24,9 @@ public class TimerServlet extends HttpServlet {
         this.templateProcessor = new TemplateProcessor();
     }
 
-    public void doGet(HttpServletRequest request,
-                      HttpServletResponse response) throws IOException {
+//  Безопасный
+//  Идемпотентный
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         Map<String, Object> pageVariables = new HashMap<>();
         pageVariables.put(REFRESH_VARIABLE_NAME, String.valueOf(PERIOD_MS));
         pageVariables.put(TIME_VARIABLE_NAME, getTime());
@@ -33,6 +34,27 @@ public class TimerServlet extends HttpServlet {
         response.setContentType("text/html;charset=utf-8");
         response.getWriter().println(templateProcessor.getPage(TIMER_PAGE_TEMPLATE, pageVariables));
         response.setStatus(HttpServletResponse.SC_OK);
+    }
+
+    //  Не безопасный
+//  Не идемпотентный
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        super.doPost(req, resp);
+    }
+
+    //  Не безопасный
+//  Идемпотентный
+    @Override
+    protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        super.doPut(req, resp);
+    }
+
+    //  Не безопасный
+//  Идемпотентный
+    @Override
+    protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        super.doDelete(req, resp);
     }
 
     private String getTime() {

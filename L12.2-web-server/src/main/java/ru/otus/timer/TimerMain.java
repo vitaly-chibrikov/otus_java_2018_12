@@ -48,7 +48,7 @@ import java.net.URL;
 
 public class TimerMain {
     private final static int PORT = 8080;
-    private final static String PUBLIC_HTML = "/static";
+    private final static String STATIC = "/static";
 
     public static void main(String[] args) throws Exception {
         new TimerMain().start();
@@ -58,7 +58,7 @@ public class TimerMain {
         resourcesExample();
 
         ResourceHandler resourceHandler = new ResourceHandler();
-        Resource resource = Resource.newClassPathResource(PUBLIC_HTML);
+        Resource resource = Resource.newClassPathResource(STATIC);
         resourceHandler.setBaseResource(resource);
 
         ServletContextHandler context = new ServletContextHandler(ServletContextHandler.SESSIONS);
@@ -73,7 +73,7 @@ public class TimerMain {
     }
 
     private void resourcesExample() {
-        URL url = TimerMain.class.getResource(PUBLIC_HTML + "/index.html"); //local path starts with '/'
+        URL url = TimerMain.class.getResource(STATIC + "/index.html"); //local path starts with '/'
         System.out.println(url);
         try (BufferedReader br = new BufferedReader(new InputStreamReader(url.openStream()))) {
             System.out.println(br.readLine());
