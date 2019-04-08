@@ -16,7 +16,9 @@ public class Thread4InterruptExample {
                         System.out.println("interrupted by flag");
                         return;
                     }
+
                     Thread.sleep(ThreadLocalRandom.current().nextInt(100));
+
                 } catch (InterruptedException e) {
                     System.out.println("interrupted by exception");
                     return;
