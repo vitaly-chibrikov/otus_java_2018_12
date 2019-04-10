@@ -1,0 +1,43 @@
+[
+  {
+    "name": "New York",
+    "population": 8623000,
+    "continent": "North America"
+  },
+  {
+    "name": "Los Angeles",
+    "population": 4000000,
+    "continent": "North America"
+  },
+  {
+    "name": "Toronto",
+    "population": 2732000,
+    "continent": "North America"
+  },
+  {
+    "name": "Sydney",
+    "population": 4452000,
+    "continent": "Australia"
+  },
+  {
+    "name": "Moscow",
+    "population": 11920000,
+    "continent": "Europe"
+  },
+  {
+    "name": "London",
+    "population": 8136000,
+    "continent": "Europe"
+  },
+  {
+    "name": "Tokyo",
+    "population": 9273000,
+    "continent": "Asia"
+  },
+  {
+    "name": "Beijing",
+    "population": 21540000,
+    "continent": "Asia"
+  }
+]
+
