@@ -26,10 +26,8 @@ public class FixMe5WithBlockingQueueTest {
         Thread t1 = new Thread(() -> {
             try {
                 latch.await();
-                for (int i = 0; i < 1000; i++) {
+                for (int i = 0; i < 100; i++) {
                     list.remove(0);
-                    int randomConsumeTimeInMillis = ThreadLocalRandom.current().nextInt(100);
-                    Thread.sleep(randomConsumeTimeInMillis);
                 }
             } catch (Throwable throwable) {
                 throwables.add(throwable);
@@ -39,9 +37,7 @@ public class FixMe5WithBlockingQueueTest {
         Thread t2 = new Thread(() -> {
             try {
                 latch.await();
-                for (int i = 0; i < 1000; i++) {
-                    int randomProduceTimeInMillis = ThreadLocalRandom.current().nextInt(10);
-                    Thread.sleep(randomProduceTimeInMillis);
+                for (int i = 0; i < 100; i++) {
                     list.add(list.size(), 5);
                 }
             } catch (Throwable throwable) {
