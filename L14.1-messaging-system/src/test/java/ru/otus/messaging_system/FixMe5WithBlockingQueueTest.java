@@ -4,24 +4,22 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.ThreadLocalRandom;
 
-import static java.lang.System.out;
-import static org.apache.commons.lang3.RandomStringUtils.randomAlphabetic;
-
-//TODO please FIXME with ConcurrentHashMap
+//TODO please FIXME with BlockingQueue
 // Вопросы:
-// - Какую коллекцию будем менять и на какую?
+// - Что делает это многопоточное приложение?
+// - Какие есть проблемы в данном многопоточном приложении?
+// - Запустим приложение прямо сейчас!
 // - Фиксим тест сейчас!
-// - *Для какого сценария по нагрузке больше всего подходит ConcurrentHashMap?
-public class FixMe3WithConcurrentHashMapUnitTest {
+// - *Для какого сценария по нагрузке больше всего подходит BlockingQueue?
+public class FixMe5WithBlockingQueueTest {
     @Test
-    public void testConcurrentHashMapWorksGreat() throws InterruptedException {
+    public void testBlockingQueueWorksGreat() throws InterruptedException {
 
-        final Map<String, String> map = new HashMap<>();
+        List<Integer> list = new ArrayList<>();
         final CountDownLatch latch = new CountDownLatch(1);
         List<Throwable> throwables = new ArrayList<>();
 
@@ -29,22 +27,22 @@ public class FixMe3WithConcurrentHashMapUnitTest {
             try {
                 latch.await();
                 for (int i = 0; i < 1000; i++) {
-                    out.println("starting adding email " + i);
-                    String s = randomAlphabetic(10) + "@gmail.com";
-                    map.put(s, s);
-                    out.println("finishing adding email " + i);
+                    list.remove(0);
+                    int randomConsumeTimeInMillis = ThreadLocalRandom.current().nextInt(100);
+                    Thread.sleep(randomConsumeTimeInMillis);
                 }
             } catch (Throwable throwable) {
                 throwables.add(throwable);
             }
         });
+
         Thread t2 = new Thread(() -> {
             try {
                 latch.await();
                 for (int i = 0; i < 1000; i++) {
-                    out.println("starting read iteration " + i);
-                    map.forEach((k, v) -> out.println(k));
-                    out.println("finishing read iteration " + i);
+                    int randomProduceTimeInMillis = ThreadLocalRandom.current().nextInt(10);
+                    Thread.sleep(randomProduceTimeInMillis);
+                    list.add(list.size(), 5);
                 }
             } catch (Throwable throwable) {
                 throwables.add(throwable);

@@ -12,6 +12,7 @@ import static org.apache.commons.lang3.RandomStringUtils.randomAlphabetic;
 
 //TODO please FIXME with CopyOnWriteArrayList
 // Вопросы:
+// - Какую коллекцию будем менять и на какую?
 // - Фиксим тест сейчас!
 // - *Для какого сценария по нагрузке больше всего подходит CopyOnWriteArrayList?
 public class FixMe4WithCopyOnWriteArrayListUnitTest {
