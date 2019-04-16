@@ -1,6 +1,5 @@
-package ru.otus.messaging_system;
+package ru.otus.l141;
 
-import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Assert;
 import org.junit.Test;
 

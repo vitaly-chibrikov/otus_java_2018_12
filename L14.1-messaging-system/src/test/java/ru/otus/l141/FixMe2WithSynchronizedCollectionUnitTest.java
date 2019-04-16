@@ -1,4 +1,4 @@
-package ru.otus.messaging_system;
+package ru.otus.l141;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -10,14 +10,16 @@ import java.util.concurrent.CountDownLatch;
 import static java.lang.System.out;
 import static org.apache.commons.lang3.RandomStringUtils.randomAlphabetic;
 
-//TODO please FIXME with CopyOnWriteArrayList
+//TODO please FIXME with synchronized collection
 // Вопросы:
-// - Какую коллекцию будем менять и на какую?
+// - Какую коллекцию будем синхронизировать и как?
 // - Фиксим тест сейчас!
-// - *Для какого сценария по нагрузке больше всего подходит CopyOnWriteArrayList?
-public class FixMe4WithCopyOnWriteArrayListUnitTest {
+// - Разбираем результаты фикса.
+// - Какие проблемы остаются в коде?
+// - *Что особенного в методе join() в точки зрения видимости?
+public class FixMe2WithSynchronizedCollectionUnitTest {
     @Test
-    public void testCopyOnWriteArrayListWorksGreat() throws InterruptedException {
+    public void testSyncCollectionWorksGreat() throws InterruptedException {
 
         final List<String> list = new ArrayList<>();
         final CountDownLatch latch = new CountDownLatch(1);
