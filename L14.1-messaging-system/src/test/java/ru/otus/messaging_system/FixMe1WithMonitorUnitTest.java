@@ -9,19 +9,22 @@ import java.util.List;
 import java.util.concurrent.CountDownLatch;
 
 import static java.lang.System.out;
+import static org.apache.commons.lang3.RandomStringUtils.randomAlphabetic;
 
 //TODO please FIXME with monitor
 // Вопросы:
 // - Что делает это многопоточное приложение?
 // - Какие есть проблемы в данном многопоточном приложении?
+// - Запустим приложение прямо сейчас!
 // - Из какого потока летит исключение?
 // - Из какого метода летит исключение?
 // - Какие есть варианты решения этой проблемы?
 // - Какой объект может быть монитором?
-// - Чем плохо решение с монитором?
+// - Сделаем фикс прямо сейчас!
+// - Какие есть проблемы в решении с монитором?
 // - Какие проблемы остаются в коде?
-// - Для чего тут нужен CountDownLatch?*
-// - Зачем вызывать join() на потоках?*
+// - *Для чего тут нужен CountDownLatch?
+// - *Зачем вызывать join() на потоках?
 public class FixMe1WithMonitorUnitTest {
     @Test
     public void testMonitorWorksGreat() throws InterruptedException {
@@ -33,11 +36,10 @@ public class FixMe1WithMonitorUnitTest {
         Thread t1 = new Thread(() -> {
             try {
                 latch.await();
-                for (int i = 0; i < 10000; i++) {
+                for (int i = 0; i < 1000; i++) {
                     out.println("starting adding email " + i);
-                    list.add(RandomStringUtils.randomAlphabetic(10) + "@gmail.com");
+                    list.add(randomAlphabetic(10) + "@gmail.com");
                     out.println("finishing adding email " + i);
-                    Thread.yield();
                 }
             } catch (Throwable throwable) {
                 throwables.add(throwable);

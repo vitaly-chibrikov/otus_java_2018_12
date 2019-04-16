@@ -4,24 +4,24 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.CountDownLatch;
 
 import static java.lang.System.out;
 import static org.apache.commons.lang3.RandomStringUtils.randomAlphabetic;
 
-//TODO please FIXME with synchronized collection
+//TODO please FIXME with ConcurrentHashMap
 // Вопросы:
-// - Какую коллекцию будем синхронизировать и как?
+// - Какую коллекцию будем менять?
 // - Фиксим тест сейчас!
-// - Разбираем результаты фикса.
-// - Какие проблемы остаются в коде?
-// - *Что особенного в методе join() в точки зрения видимости?
-public class FixMe2WithSynchronizedCollectionUnitTest {
+// - *Для какого сценария по нагрузке больше всего подходит ConcurrentHashMap?
+public class FixMe3WithConcurrentHashMapUnitTest {
     @Test
-    public void testSyncCollectionWorksGreat() throws InterruptedException {
+    public void testConcurrentHashMapWorksGreat() throws InterruptedException {
 
-        final List<String> list = new ArrayList<>();
+        final Map<String, String> map = new HashMap<>();
         final CountDownLatch latch = new CountDownLatch(1);
         List<Throwable> throwables = new ArrayList<>();
 
@@ -30,7 +30,8 @@ public class FixMe2WithSynchronizedCollectionUnitTest {
                 latch.await();
                 for (int i = 0; i < 1000; i++) {
                     out.println("starting adding email " + i);
-                    list.add(randomAlphabetic(10) + "@gmail.com");
+                    String s = randomAlphabetic(10) + "@gmail.com";
+                    map.put(s, s);
                     out.println("finishing adding email " + i);
                 }
             } catch (Throwable throwable) {
@@ -42,9 +43,7 @@ public class FixMe2WithSynchronizedCollectionUnitTest {
                 latch.await();
                 for (int i = 0; i < 1000; i++) {
                     out.println("starting read iteration " + i);
-                    for (String email : list) {
-                        out.println(email);
-                    }
+                    map.forEach((k, v) -> out.println(k));
                     out.println("finishing read iteration " + i);
                 }
             } catch (Throwable throwable) {

@@ -10,16 +10,13 @@ import java.util.concurrent.CountDownLatch;
 import static java.lang.System.out;
 import static org.apache.commons.lang3.RandomStringUtils.randomAlphabetic;
 
-//TODO please FIXME with synchronized collection
+//TODO please FIXME with CopyOnWriteArrayList
 // Вопросы:
-// - Какую коллекцию будем синхронизировать и как?
 // - Фиксим тест сейчас!
-// - Разбираем результаты фикса.
-// - Какие проблемы остаются в коде?
-// - *Что особенного в методе join() в точки зрения видимости?
-public class FixMe2WithSynchronizedCollectionUnitTest {
+// - *Для какого сценария по нагрузке больше всего подходит CopyOnWriteArrayList?
+public class FixMe4WithCopyOnWriteArrayListUnitTest {
     @Test
-    public void testSyncCollectionWorksGreat() throws InterruptedException {
+    public void testCopyOnWriteArrayListWorksGreat() throws InterruptedException {
 
         final List<String> list = new ArrayList<>();
         final CountDownLatch latch = new CountDownLatch(1);
