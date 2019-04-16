@@ -8,21 +8,16 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CountDownLatch;
 
-//TODO please FIXME with monitor
+import static java.lang.System.out;
+
+//TODO please FIXME with synchronized collection
 // Вопросы:
-// - Что делает это многопоточное приложение?
-// - Какие есть проблемы в данном многопоточном приложении?
-// - Из какого потока летит исключение?
-// - Из какого метода летит исключение?
-// - Какие есть варианты решения этой проблемы?
-// - Какой объект может быть монитором?
-// - Чем плохо решение с монитором?
+// - Какую коллекцию будем синхронизировать и как?
 // - Какие проблемы остаются в коде?
-// - Для чего тут нужен CountDownLatch?*
-// - Зачем вызывать join() на потоках?*
-public class UnitTest1 {
+// - Что особенного в методе join() в точки зрения видимости?
+public class FixMe2WithSynchronizedCollectionUnitTest {
     @Test
-    public void testIteratorFailFast() throws InterruptedException {
+    public void testSyncCollectionWorksGreat() throws InterruptedException {
 
         final List<String> list = new ArrayList<>();
         final CountDownLatch latch = new CountDownLatch(1);
@@ -32,9 +27,9 @@ public class UnitTest1 {
             try {
                 latch.await();
                 for (int i = 0; i < 10000; i++) {
-                    System.out.println("starting adding email " + i);
+                    out.println("starting adding email " + i);
                     list.add(RandomStringUtils.randomAlphabetic(10) + "@gmail.com");
-                    System.out.println("finishing adding email " + i);
+                    out.println("finishing adding email " + i);
                 }
             } catch (Throwable throwable) {
                 throwables.add(throwable);
@@ -44,9 +39,11 @@ public class UnitTest1 {
             try {
                 latch.await();
                 for (int i = 0; i < 1000; i++) {
-                    System.out.println("starting read iteration" + i);
-                    list.forEach(System.out::println);
-                    System.out.println("finishing read iteration" + i);
+                    out.println("starting read iteration " + i);
+                    for (String email : list) {
+                        out.println(email);
+                    }
+                    out.println("finishing read iteration " + i);
                 }
             } catch (Throwable throwable) {
                 throwables.add(throwable);
@@ -61,8 +58,6 @@ public class UnitTest1 {
         t1.join();
         t2.join();
 
-        if (!throwables.isEmpty()) {
-            Assert.fail(throwables.toString());
-        }
+        Assert.assertEquals(0, throwables.size());
     }
 }
