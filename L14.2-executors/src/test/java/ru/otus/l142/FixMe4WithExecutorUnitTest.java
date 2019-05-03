@@ -38,13 +38,13 @@ public class FixMe4WithExecutorUnitTest {
         class Summator extends Thread {
             @Override
             public void run() {
-                try {
-                    for (int i = 0; i < 1000; i++) {
+                for (int i = 0; i < 1000; i++) {
+                    try {
                         sum(list);
                         out.println(format("sum called %s time", i));
+                    } catch (Throwable throwable) {
+                        throwables.add(throwable);
                     }
-                } catch (Throwable throwable) {
-                    throwables.add(throwable);
                 }
             }
         }
