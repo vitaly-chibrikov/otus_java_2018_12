@@ -19,7 +19,7 @@ import static java.lang.System.out;
 // 3) availablePermits
 // 4) pool
 // 5) tryAcquire()
-public class FixMe3WithSemaphoreUnitTest {
+public class FixMe3WithSemaphore10UnitTest {
     @Test
     public void testSemaphoreWorksGreat() throws InterruptedException {
         out.println("start");

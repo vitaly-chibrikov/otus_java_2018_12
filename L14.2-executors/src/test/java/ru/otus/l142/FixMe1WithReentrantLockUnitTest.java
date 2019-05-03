@@ -19,6 +19,7 @@ import static java.lang.System.out;
 // 5) *почему называется ReentrantLock?
 // 6) CyclicBarrier
 // 7) *почему называется CyclicBarrier?
+// 8) Phaser - like CountDownLatch and CyclicBarrier, но более навороченый
 public class FixMe1WithReentrantLockUnitTest {
     @Test
     public void testReentrantLockWorksGreat() throws InterruptedException {
