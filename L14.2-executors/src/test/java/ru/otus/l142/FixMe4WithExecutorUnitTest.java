@@ -7,67 +7,45 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import java.util.concurrent.BrokenBarrierException;
-import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.CyclicBarrier;
 
 import static java.lang.String.format;
 import static java.lang.System.out;
 
-//TODO 1) FIXME with Executor
+//TODO 1) FIXME with Executors.newSingleThreadExecutor() - single thread + unbounded queue
 public class FixMe4WithExecutorUnitTest {
     @Test
-    public void testSemaphoreWorksGreat() throws InterruptedException {
+    public void testExecutorWorksGreat() throws InterruptedException {
         out.println("start");
 
         long start = System.currentTimeMillis();
         final List<Integer> list = new ArrayList<>();
         List<Throwable> throwables = new ArrayList<>();
-        CountDownLatch latch = new CountDownLatch(1);
-        CyclicBarrier barrier = new CyclicBarrier(4);
 
         class Populator extends Thread {
             @Override
             public void run() {
-
-                int count = 0;
-                try {
-                    latch.await();
-                    for (int i = 0; i < 1000; i++) {
-                        count++;
+                for (int i = 0; i < 1000; i++) {
+                    try {
                         list.add(i);
+                        out.println(format("add %s", i));
+                    } catch (Throwable throwable) {
+                        throwables.add(throwable);
                     }
-                } catch (Throwable throwable) {
-                    throwables.add(throwable);
                 }
-                try {
-                    barrier.await();
-                } catch (InterruptedException | BrokenBarrierException e) {
-                    e.printStackTrace();
-                }
-                out.println(format("add called %s times", count));
             }
         }
 
         class Summator extends Thread {
             @Override
             public void run() {
-                int count = 0;
                 try {
-                    latch.await();
                     for (int i = 0; i < 1000; i++) {
-                        count++;
                         sum(list);
+                        out.println(format("sum called %s time", i));
                     }
                 } catch (Throwable throwable) {
                     throwables.add(throwable);
                 }
-                try {
-                    barrier.await();
-                } catch (InterruptedException | BrokenBarrierException e) {
-                    e.printStackTrace();
-                }
-                out.println(format("sum called %s times", count));
             }
         }
 
@@ -81,8 +59,6 @@ public class FixMe4WithExecutorUnitTest {
         p2.start();
         s1.start();
         s2.start();
-
-        latch.countDown();
 
         p1.join();
         p2.join();
