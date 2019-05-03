@@ -7,10 +7,6 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import java.util.concurrent.CopyOnWriteArrayList;
-import java.util.concurrent.ForkJoinPool;
-import java.util.concurrent.RecursiveTask;
-import java.util.concurrent.TimeUnit;
 
 import static java.lang.String.format;
 import static java.lang.System.out;
@@ -18,16 +14,15 @@ import static java.lang.System.out;
 //TODO 1) посмотрим Executors.newWorkStealingPool()
 // 2) создаем руками ForkJoinPool, есть action и task - RecursiveAction & RecursiveTask
 // 3) with ForkJoin и RecursiveTask и переделываем sum на рекурсивный вариант
+// 4) нет гарантий на очередность задач/действий, несколько очередей
 public class FixMe5WithForkJoinUnitTest {
     @Test
     public void testForkJoinWorksGreat() throws InterruptedException {
         out.println("start");
 
         long start = System.currentTimeMillis();
-        final List<Integer> list = new CopyOnWriteArrayList<>();
+        final List<Integer> list = new ArrayList<>();
         final List<Throwable> throwables = new ArrayList<>();
-
-        ForkJoinPool forkJoinPool = new ForkJoinPool();
 
         class Populator extends Thread {
             @Override
@@ -48,32 +43,7 @@ public class FixMe5WithForkJoinUnitTest {
             public void run() {
                 for (int i = 0; i < 1000; i++) {
                     try {
-                        class SumRecursiveTask extends RecursiveTask<BigDecimal> {
-                            private final List<Integer> list;
-
-                            public SumRecursiveTask(List<Integer> list) {
-                                this.list = list;
-                            }
-
-                            @Override
-                            protected BigDecimal compute() {
-                                if (list.size() > 16) {
-                                    int edge = list.size() / 2;
-                                    List<Integer> left = list.subList(0, edge);
-                                    List<Integer> right = list.subList(edge, list.size() - 1);
-                                    SumRecursiveTask leftTask = new SumRecursiveTask(left);
-                                    leftTask.fork();
-                                    SumRecursiveTask rightTask = new SumRecursiveTask(right);
-                                    rightTask.fork();
-                                    return leftTask.join()
-                                            .add(rightTask.join());
-                                } else {
-                                    return sum(list);
-                                }
-                            }
-                        }
-
-                        forkJoinPool.invoke(new SumRecursiveTask(List.copyOf(list)));
+                        sum(list);
                         out.println(format("sum called %s time", i));
                     } catch (Throwable throwable) {
                         throwables.add(throwable);
@@ -97,9 +67,6 @@ public class FixMe5WithForkJoinUnitTest {
         p2.join();
         s1.join();
         s2.join();
-
-        forkJoinPool.shutdown();
-        forkJoinPool.awaitTermination(1, TimeUnit.MINUTES);
 
         out.println(format("execution time = %s millis", (System.currentTimeMillis() - start)));
 
