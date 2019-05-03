@@ -13,6 +13,8 @@ import static java.lang.String.format;
 import static java.lang.System.out;
 
 //TODO 1) FIXME with ReadWriteReentrantLock
+// 2) CyclicBarrier
+// 3) *почему называется CyclicBarrier?
 public class FixMe2WithReadWriteLockUnitTest {
     @Test
     public void testReentrantLockWorksGreat() throws InterruptedException {

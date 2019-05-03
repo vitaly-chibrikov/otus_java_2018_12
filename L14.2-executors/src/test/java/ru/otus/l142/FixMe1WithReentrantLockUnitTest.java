@@ -15,6 +15,8 @@ import static java.lang.System.out;
 //TODO 1) FIXME with ReentrantLock
 // 2) tryLock()
 // 3) conditions
+// 4) что делает CountDownLatch? (порисовать)
+// 5) *почему называется ReentrantLock?
 public class FixMe1WithReentrantLockUnitTest {
     @Test
     public void testReentrantLockWorksGreat() throws InterruptedException {
