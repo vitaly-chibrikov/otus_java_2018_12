@@ -19,7 +19,7 @@ public class FixMe4WithExecutorUnitTest {
 
         long start = System.currentTimeMillis();
         final List<Integer> list = new ArrayList<>();
-        List<Throwable> throwables = new ArrayList<>();
+        final List<Throwable> throwables = new ArrayList<>();
 
         class Populator extends Thread {
             @Override
