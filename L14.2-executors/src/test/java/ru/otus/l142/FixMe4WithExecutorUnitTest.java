@@ -17,6 +17,7 @@ import static java.lang.System.out;
 // 4) меняем на newFixedThreadPool(10)
 // 5) смотрим на newScheduledThreadPool()
 // 6) меняем на new ThreadPoolExecutor(), ограниченная очередь, политики отказов
+// 7) меняем Runnable на Callable - результат добавления во Future и дальше можем блокироваться пока нет результата, а можем проверять и идети дальше
 public class FixMe4WithExecutorUnitTest {
     @Test
     public void testExecutorWorksGreat() throws InterruptedException {
