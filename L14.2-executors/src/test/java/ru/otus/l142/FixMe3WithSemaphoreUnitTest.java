@@ -7,12 +7,14 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.concurrent.BrokenBarrierException;
 import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.CyclicBarrier;
 
 import static java.lang.String.format;
 import static java.lang.System.out;
 
-//TODO 1) FIXME with Semaphore
+//TODO 1) FIXME with Semaphore(10)
 // 2) mutex vs semaphore
 // 3) availablePermits
 // 4) pool
@@ -26,6 +28,7 @@ public class FixMe3WithSemaphoreUnitTest {
         final List<Integer> list = new ArrayList<>();
         List<Throwable> throwables = new ArrayList<>();
         CountDownLatch latch = new CountDownLatch(1);
+        CyclicBarrier barrier = new CyclicBarrier(4);
 
         class Populator extends Thread {
             @Override
@@ -40,6 +43,11 @@ public class FixMe3WithSemaphoreUnitTest {
                     }
                 } catch (Throwable throwable) {
                     throwables.add(throwable);
+                }
+                try {
+                    barrier.await();
+                } catch (InterruptedException | BrokenBarrierException e) {
+                    e.printStackTrace();
                 }
                 out.println(format("add called %s times", count));
             }
@@ -57,6 +65,11 @@ public class FixMe3WithSemaphoreUnitTest {
                     }
                 } catch (Throwable throwable) {
                     throwables.add(throwable);
+                }
+                try {
+                    barrier.await();
+                } catch (InterruptedException | BrokenBarrierException e) {
+                    e.printStackTrace();
                 }
                 out.println(format("sum called %s times", count));
             }

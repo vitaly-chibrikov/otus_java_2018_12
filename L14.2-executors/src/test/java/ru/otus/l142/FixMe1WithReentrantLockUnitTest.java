@@ -17,6 +17,8 @@ import static java.lang.System.out;
 // 3) conditions
 // 4) что делает CountDownLatch? (порисовать)
 // 5) *почему называется ReentrantLock?
+// 6) CyclicBarrier
+// 7) *почему называется CyclicBarrier?
 public class FixMe1WithReentrantLockUnitTest {
     @Test
     public void testReentrantLockWorksGreat() throws InterruptedException {
