@@ -12,14 +12,14 @@ import java.util.concurrent.CountDownLatch;
 import static java.lang.String.format;
 import static java.lang.System.out;
 
-//TODO 1) FIXME with ReentrantLock
-// 2) tryLock()
-// 3) conditions
-// 4) что делает CountDownLatch? (порисовать)
-// 5) *почему называется ReentrantLock?
-public class FixMe1WithReentrantLockUnitTest {
+//TODO 1) FIXME with Semaphore
+// 2) mutex vs semaphore
+// 3) availablePermits
+// 4) pool
+// 5) tryAcquire()
+public class FixMe3WithSemaphoreUnitTest {
     @Test
-    public void testReentrantLockWorksGreat() throws InterruptedException {
+    public void testSemaphoreWorksGreat() throws InterruptedException {
         out.println("start");
 
         long start = System.currentTimeMillis();
@@ -45,7 +45,7 @@ public class FixMe1WithReentrantLockUnitTest {
             }
         }
 
-        class Summator extends Thread  {
+        class Summator extends Thread {
             @Override
             public void run() {
                 int count = 0;

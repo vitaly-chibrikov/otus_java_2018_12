@@ -17,7 +17,7 @@ import static java.lang.System.out;
 // 3) *почему называется CyclicBarrier?
 public class FixMe2WithReadWriteLockUnitTest {
     @Test
-    public void testReentrantLockWorksGreat() throws InterruptedException {
+    public void testReadWriteReentrantLockWorksGreat() throws InterruptedException {
         out.println("start");
 
         long start = System.currentTimeMillis();
@@ -25,40 +25,58 @@ public class FixMe2WithReadWriteLockUnitTest {
         List<Throwable> throwables = new ArrayList<>();
         CountDownLatch latch = new CountDownLatch(1);
 
-        Thread t1 = new Thread(() -> {
-            int count = 0;
-            try {
-                latch.await();
-                for (int i = 0; i < 1000; i++) {
-                    count++;
-                    list.add(i);
-                }
-            } catch (Throwable throwable) {
-                throwables.add(throwable);
-            }
-            out.println(format("add called %s times", count));
-        });
-        Thread t2 = new Thread(() -> {
-            int count = 0;
-            try {
-                latch.await();
-                for (int i = 0; i < 1000; i++) {
-                    count++;
-                    sum(list);
-                }
-            } catch (Throwable throwable) {
-                throwables.add(throwable);
-            }
-            out.println(format("sum called %s times", count));
-        });
+        class Populator extends Thread {
+            @Override
+            public void run() {
 
-        t1.start();
-        t2.start();
+                int count = 0;
+                try {
+                    latch.await();
+                    for (int i = 0; i < 1000; i++) {
+                        count++;
+                        list.add(i);
+                    }
+                } catch (Throwable throwable) {
+                    throwables.add(throwable);
+                }
+                out.println(format("add called %s times", count));
+            }
+        }
+
+        class Summator extends Thread  {
+            @Override
+            public void run() {
+                int count = 0;
+                try {
+                    latch.await();
+                    for (int i = 0; i < 1000; i++) {
+                        count++;
+                        sum(list);
+                    }
+                } catch (Throwable throwable) {
+                    throwables.add(throwable);
+                }
+                out.println(format("sum called %s times", count));
+            }
+        }
+
+        Populator p1 = new Populator();
+        Populator p2 = new Populator();
+
+        Summator s1 = new Summator();
+        Summator s2 = new Summator();
+
+        p1.start();
+        p2.start();
+        s1.start();
+        s2.start();
 
         latch.countDown();
 
-        t1.join();
-        t2.join();
+        p1.join();
+        p2.join();
+        s1.join();
+        s2.join();
 
         out.println(format("execution time = %s millis", (System.currentTimeMillis() - start)));
 
