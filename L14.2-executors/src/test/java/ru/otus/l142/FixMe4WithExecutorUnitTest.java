@@ -11,13 +11,14 @@ import java.util.List;
 import static java.lang.String.format;
 import static java.lang.System.out;
 
-//TODO 1) FIXME with Executors.newSingleThreadExecutor() - single thread + unbounded queue
-// 2) смотрим результаты - ничего не смущает? (забыли дождаться конца работы воркеров)
-// 3) меняем на newCachedThreadPool, работает? CopyOnWriteArrayList...
-// 4) меняем на newFixedThreadPool(10)
-// 5) смотрим на newScheduledThreadPool()
-// 6) меняем на new ThreadPoolExecutor(), ограниченная очередь, политики отказов
-// 7) меняем Runnable на Callable - результат добавления во Future и дальше можем блокироваться пока нет результата, а можем проверять и идети дальше
+//TODO 1) FIXME with Executors.newSingleThreadExecutor(), обратите внимание что у нас один поток и неограниченная очередь, пришлите время выполнения
+// 2) Посмотрите результаты вывода в консоль, нет ли вопросов? Если нужно, внесите правки чтобы вопросы решились;
+// 3) Поменяйте реализацию на Executors.newCachedThreadPool и запустите, сделайте так чтобы работало и пришлите время выполнения
+// 4) Поменяйте реализацию на Executors.newFixedThreadPool(10) и пришлите время выполнения
+// 5) *Посмотрите на на Executors.newScheduledThreadPool(), приведите примеры прикладных задач для чего он может быть полезен?
+// 6) Поменяйте реализацию на new ThreadPoolExecutor() c ограниченной очередью и политикой отказов, выполняющей задачу в текущем потоке и пришлите время выполнения
+// 7) Поменяйте Runnable на Callable, возвращайте бинарный результат добавления (true/false) во Future<Boolean> и блокируйтесь пока нет результата через Future.get(), пришлите время выполнения
+// 8) А теперь решите без блокировки: проверяйте готово или не готово с помощью Future.isDone() и идите дальше, пришлите время выполнения
 public class FixMe4WithExecutorUnitTest {
     @Test
     public void testExecutorWorksGreat() throws InterruptedException {

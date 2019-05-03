@@ -12,14 +12,14 @@ import java.util.concurrent.CountDownLatch;
 import static java.lang.String.format;
 import static java.lang.System.out;
 
-//TODO 1) FIXME with ReentrantLock
-// 2) tryLock()
-// 3) conditions
-// 4) что делает CountDownLatch? (порисовать)
-// 5) *почему называется ReentrantLock?
-// 6) CyclicBarrier
-// 7) *почему называется CyclicBarrier?
-// 8) Phaser - like CountDownLatch and CyclicBarrier, но более навороченый
+//TODO 1) FIXME with ReentrantLock, пришлите время выполнения
+// 2) Решите через неблокирующее решение с tryLock(), пришлите время выполнения
+// 3) Посмотрить как создавать Сonditions, но не решайте с ними.
+// 4) *Зачем тут нужен CountDownLatch и как он работает?
+// 5) *Почему реализация лока называется ReentrantLock?
+// 6) Добавьте CyclicBarrier для того чтобы последние выводы в консоль из потоков были друг за другом, пришлите последние строки программы
+// 7) *Почему примитив называется CyclicBarrier?
+// 8) Посмотрите описание Phaser - like CountDownLatch and CyclicBarrier, но более навороченый
 public class FixMe1WithReentrantLockUnitTest {
     @Test
     public void testReentrantLockWorksGreat() throws InterruptedException {

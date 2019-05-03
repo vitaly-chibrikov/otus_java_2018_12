@@ -14,7 +14,7 @@ import java.util.concurrent.CyclicBarrier;
 import static java.lang.String.format;
 import static java.lang.System.out;
 
-//TODO 1) FIXME with ReadWriteReentrantLock
+//TODO 1) FIXME with ReadWriteReentrantLock, пришлите время выполнения программы
 public class FixMe2WithReadWriteLockUnitTest {
     @Test
     public void testReadWriteReentrantLockWorksGreat() throws InterruptedException {

@@ -11,10 +11,9 @@ import java.util.List;
 import static java.lang.String.format;
 import static java.lang.System.out;
 
-//TODO 1) посмотрим Executors.newWorkStealingPool()
-// 2) создаем руками ForkJoinPool, есть action и task - RecursiveAction & RecursiveTask
-// 3) with ForkJoin и RecursiveTask и переделываем sum на рекурсивный вариант
-// 4) нет гарантий на очередность задач/действий, несколько очередей
+//TODO 1) Посмотрите реализацию Executors.newWorkStealingPool(), обратите внимание на размер параллелизма
+// 2) Устраните ConcurrentModificationException с помощью sum(List.copyOf(list));
+// 3) Создайте руками ForkJoinPool и с помощью RecursiveTask переделайте подсчет суммы на рекурсивный вариант с порождением подзадач, если размер подсписка больше 16-ти, пришлите время выполнения
 public class FixMe5WithForkJoinUnitTest {
     @Test
     public void testForkJoinWorksGreat() throws InterruptedException {

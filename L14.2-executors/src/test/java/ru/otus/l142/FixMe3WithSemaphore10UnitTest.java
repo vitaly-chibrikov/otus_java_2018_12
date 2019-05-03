@@ -14,11 +14,10 @@ import java.util.concurrent.CyclicBarrier;
 import static java.lang.String.format;
 import static java.lang.System.out;
 
-//TODO 1) FIXME with Semaphore(10)
-// 2) mutex vs semaphore
-// 3) availablePermits
-// 4) pool
-// 5) tryAcquire()
+//TODO 1) FIXME with Semaphore(10), пришлите время выполнения
+// 2) *В чем отличия mutex и semaphore?
+// 3) Посмотрите описания методов availablePermits() и reducePermits()
+// 4) Переделайте решение на в неблокирующем стиле с tryAcquire(), пришлите время выполнения
 public class FixMe3WithSemaphore10UnitTest {
     @Test
     public void testSemaphoreWorksGreat() throws InterruptedException {
