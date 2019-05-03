@@ -12,6 +12,11 @@ import static java.lang.String.format;
 import static java.lang.System.out;
 
 //TODO 1) FIXME with Executors.newSingleThreadExecutor() - single thread + unbounded queue
+// 2) смотрим результаты - ничего не смущает? (забыли дождаться конца работы воркеров)
+// 3) меняем на newCachedThreadPool, работает? CopyOnWriteArrayList...
+// 4) меняем на newFixedThreadPool(10)
+// 5) смотрим на newScheduledThreadPool()
+// 6) меняем на new ThreadPoolExecutor(), ограниченная очередь, политики отказов
 public class FixMe4WithExecutorUnitTest {
     @Test
     public void testExecutorWorksGreat() throws InterruptedException {
