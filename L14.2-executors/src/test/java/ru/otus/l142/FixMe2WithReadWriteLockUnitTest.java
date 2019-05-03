@@ -12,10 +12,8 @@ import java.util.concurrent.CountDownLatch;
 import static java.lang.String.format;
 import static java.lang.System.out;
 
-//TODO 1) FIXME with ReentrantLock
-// 2) tryLock()
-// 3) conditions
-public class FixMe1WithReentrantLockUnitTest {
+//TODO 1) FIXME with ReadWriteReentrantLock
+public class FixMe2WithReadWriteLockUnitTest {
     @Test
     public void testReentrantLockWorksGreat() throws InterruptedException {
         out.println("start");
