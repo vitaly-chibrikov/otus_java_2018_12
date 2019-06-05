@@ -30,9 +30,9 @@ public class ServerMain {
 
 //        startClient( executorService );
 
-//        startLogServer();
-//        startEchoWithRegistrationServer();
         startEchoServer();
+//        startEchoWithRegistrationServer();
+//        startLogServer();
 //        startNonBlockingEchoServer();
 
         executorService.shutdown();
