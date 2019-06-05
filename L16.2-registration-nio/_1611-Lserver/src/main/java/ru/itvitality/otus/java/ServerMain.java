@@ -32,8 +32,8 @@ public class ServerMain {
 
 //        startLogServer();
 //        startEchoWithRegistrationServer();
-//        startEchoServer();
-        startNonBlockingEchoServer();
+        startEchoServer();
+//        startNonBlockingEchoServer();
 
         executorService.shutdown();
 

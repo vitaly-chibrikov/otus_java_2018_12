@@ -25,12 +25,12 @@ public class SocketMessageWorker implements MessageWorker {
     private final BlockingQueue<Message> output = new LinkedBlockingQueue<>();
     private final BlockingQueue<Message> input = new LinkedBlockingQueue<>();
 
-    private final List<Runnable> shutdownRegistrations;
+    private final List<Runnable> closeObservers;
 
     public SocketMessageWorker(Socket socket) {
         this.socket = socket;
         executorService = Executors.newFixedThreadPool(WORKER_COUNT);
-        this.shutdownRegistrations = new ArrayList<>();
+        this.closeObservers = new ArrayList<>();
     }
 
     public void init() {
@@ -56,13 +56,13 @@ public class SocketMessageWorker implements MessageWorker {
     @Override
     public void close() throws IOException {
         socket.close();
-        shutdownRegistrations.forEach(Runnable::run);
-        shutdownRegistrations.clear();
+        closeObservers.forEach(Runnable::run);
+        closeObservers.clear();
         executorService.shutdown();
     }
 
-    public void addShutdownRegistration(Runnable runnable) {
-        this.shutdownRegistrations.add(runnable);
+    public void addCloseObserver(Runnable runnable) {
+        this.closeObservers.add(runnable);
     }
 
     @Blocks

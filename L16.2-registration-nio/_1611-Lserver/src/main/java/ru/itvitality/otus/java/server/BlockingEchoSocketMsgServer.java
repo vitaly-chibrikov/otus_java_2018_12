@@ -42,7 +42,7 @@ public class BlockingEchoSocketMsgServer {
                 Socket socket = serverSocket.accept(); //blocks
                 SocketMessageWorker worker = new SocketMessageWorker(socket);
 
-                worker.addShutdownRegistration(() -> workers.remove(worker));
+                worker.addCloseObserver(() -> workers.remove(worker));
 
                 worker.init();
                 workers.add(worker);
